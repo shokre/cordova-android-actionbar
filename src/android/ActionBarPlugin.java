@@ -44,6 +44,7 @@ import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
 import org.apache.cordova.CallbackContext;
+import org.apache.cordova.CordovaActivity;
 import org.apache.cordova.CordovaPlugin;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -141,7 +142,7 @@ public class ActionBarPlugin extends CordovaPlugin
 				return;
 			}
 
-			final Activity ctx = (Activity)plugin.cordova;
+			final Activity ctx = plugin.cordova.getActivity();
 			items = new ArrayList<Item>();
 
 			for(int i = 0; i < new_items.length(); ++i)
@@ -187,7 +188,7 @@ public class ActionBarPlugin extends CordovaPlugin
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent)
 		{
-			final Activity ctx = (Activity)plugin.cordova;
+			final Activity ctx = plugin.cordova.getActivity();
             LayoutInflater inflater = LayoutInflater.from(ctx.getActionBar().getThemedContext());
 			TextView view = (TextView)inflater.inflate(android.R.layout.simple_spinner_item, parent, false);
 			view.setText(items.get(position).Text);
@@ -197,7 +198,7 @@ public class ActionBarPlugin extends CordovaPlugin
 		@Override
 		public View getDropDownView(int position, View convertView, ViewGroup parent)
 		{
-			final Activity ctx = (Activity)plugin.cordova;
+			final Activity ctx = plugin.cordova.getActivity();
 			final Item item = items.get(position);
 			
 			IconTextView view;
@@ -285,7 +286,7 @@ public class ActionBarPlugin extends CordovaPlugin
 	private Drawable getDrawableForURI(String uri_string)
 	{
 		Uri uri = Uri.parse(uri_string);
-		Activity ctx = (Activity)cordova;
+		Activity ctx = cordova.getActivity();
 
 		// Special case - TrueType fonts
 		if(uri_string.endsWith(".ttf"))
@@ -480,10 +481,11 @@ public class ActionBarPlugin extends CordovaPlugin
 			{
 				final JSONObject item_def = definition.getJSONObject(i);
 				final String text = item_def.isNull("text")? "" : item_def.getString("text");
+				final int item_id = item_def.isNull("id") ? i : item_def.getInt("id");
 
 				if(!item_def.has("items"))
 				{
-					MenuItem item = menu.add(0, i, i, text);
+					MenuItem item = menu.add(0, item_id, i, text);
 					item.setTitleCondensed(text);
 					if(item_def.isNull("icon") == false)
 					{
@@ -610,8 +612,8 @@ public class ActionBarPlugin extends CordovaPlugin
 		{
 			return false;
 		}
-		
-		final Activity ctx = (Activity)cordova;
+
+		final Activity ctx = cordova.getActivity();
 
 		if("isAvailable".equals(action))
 		{
@@ -639,8 +641,8 @@ public class ActionBarPlugin extends CordovaPlugin
 
 		if(menu == null)
 		{
-			callbackContext.error("Options menu not initialised");
-			return true;
+			//callbackContext.error("Options menu not initialised");
+			//return true;
 		}
 
 		final StringBuffer error = new StringBuffer();
@@ -689,7 +691,7 @@ public class ActionBarPlugin extends CordovaPlugin
 							// This is a bit of a hack (should be specific to the request, not global)
 							bases = new String[]
 							{
-								removeFilename(webView.getOriginalUrl()),
+								//removeFilename(webView.getOriginalUrl()),
 								removeFilename(webView.getUrl())
 							};
 							
