@@ -56,8 +56,7 @@ Basic Example (Tabs)
 Project Setup
 -------------
 
-1. Copy (or link) all the .java files into your project src (under the appropriate com.polychrom.cordova package).
-2. Copy actionbar.js into your cordova app's www directory
-3. Add `<script charset="utf-8" src="actionbar.js"></script>` to your cordova app's HTML.
-4. Call `requestWindowFeature(Window.FEATURE_ACTION_BAR);` BEFORE loadUrl/setContentView to request the ActionBar feature for your activity's window.
-5. Add `getActionBar();` to your Activity's onCreate function AFTER loadUrl/setContentView - Android won't create/display an ActionBar if it isn't called.
+1. Add plugin: `cordova plugin add https://github.com/shokre/cordova-android-actionbar`
+2. Add `<preference name="ShowTitle" value="true" />` to your main `config.xml`
+3. Call `requestWindowFeature(Window.FEATURE_ACTION_BAR);` BEFORE loadUrl/setContentView to request the ActionBar feature for your activity's window.
+4. Add `getActionBar();` to your Activity's onCreate function AFTER loadUrl/setContentView - Android won't create/display an ActionBar if it isn't called.
