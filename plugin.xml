@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-    xmlns:rim="http://www.blackberry.com/ns/widgets"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    id="com.polychrom.cordova.ActionBarPlugin"
-    version="0.1.0">
+<plugin id="com.polychrom.cordova.ActionBarPlugin"
+        version="0.1.0"
+        xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:rim="http://www.blackberry.com/ns/widgets">
     <name>Account Manager</name>
     <description>An Android ActionBar plugin for Apache Cordova.</description>
     <license>Modified BSD</license>
@@ -11,20 +11,19 @@
 
     <repo>https://github.com/polychrom/cordova-android-actionbar.git</repo>
 
-    <js-module src="www/js/actionbar.js" name="actionbar">
-        <clobbers target="actionbar" />
+    <js-module name="actionbar" src="www/js/actionbar.js">
+        <clobbers target="actionbar"/>
     </js-module>
 
     <asset src="ngCordova/ActionBar.js" target="ngCordova/ActionBar.js"/>
 
     <!-- android -->
     <platform name="android">
-		<config-file target="res/xml/config.xml" parent="/*">
-			<feature name="ActionBar" >
-				<param name="android-package" value="com.polychrom.cordova.ActionBarPlugin"/>
-			</feature>
-		</config-file>
-
-		<source-file src="src/android/ActionBarPlugin.java" target-dir="src/com/polychrom/cordova" />
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="ActionBar">
+                <param name="android-package" value="com.polychrom.cordova.ActionBarPlugin"/>
+            </feature>
+        </config-file>
+        <source-file src="src/android/ActionBarPlugin.java" target-dir="src/com/polychrom/cordova"/>
     </platform>
 </plugin>
