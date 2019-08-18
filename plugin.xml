@@ -4,12 +4,12 @@
         xmlns="http://apache.org/cordova/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:rim="http://www.blackberry.com/ns/widgets">
-    <name>Account Manager</name>
+    <name>ActionBar</name>
     <description>An Android ActionBar plugin for Apache Cordova.</description>
     <license>Modified BSD</license>
     <keywords>cordova,actionbar,android</keywords>
 
-    <repo>https://github.com/polychrom/cordova-android-actionbar.git</repo>
+    <repo>https://github.com/shokre/cordova-android-actionbar.git</repo>
 
     <js-module name="actionbar" src="www/js/actionbar.js">
         <clobbers target="actionbar"/>
