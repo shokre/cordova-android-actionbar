@@ -1,6 +1,6 @@
 {
   "name": "cordova-android-actionbar",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "cordova": {
     "id": "com.polychrom.cordova.ActionBarPlugin",
     "platforms": [
