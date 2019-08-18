@@ -285,5 +285,19 @@ ActionBar.prototype.getTitle = function(callback)
 		'ActionBar', 'getTitle', []);
 };
 
+// utility options menu
+function OptionsMenu(menu) {
+	this.items = menu;
+}
+
+OptionsMenu.prototype.asMenu = function() {
+	return this.items.map(function(a) {
+		if (!a.show) a.show = ActionBar.prototype.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW;
+		return a;
+	});
+};
+
+ActionBar.prototype.OptionsMenu = OptionsMenu;
+
 if(!window.plugins) window.plugins = {};
 window.plugins.actionbar = new ActionBar();
