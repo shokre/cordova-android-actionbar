@@ -57,6 +57,6 @@ Project Setup
 -------------
 
 1. Add plugin: `cordova plugin add https://github.com/shokre/cordova-android-actionbar`
-2. Add `<preference name="ShowTitle" value="true" />` to your main `config.xml`
+2. Add `<preference name="ShowTitle" value="true" />` to your main `config.xml` (This should be added automatically to platform config.xml)
 3. Call `requestWindowFeature(Window.FEATURE_ACTION_BAR);` BEFORE loadUrl/setContentView to request the ActionBar feature for your activity's window.
 4. Add `getActionBar();` to your Activity's onCreate function AFTER loadUrl/setContentView - Android won't create/display an ActionBar if it isn't called.

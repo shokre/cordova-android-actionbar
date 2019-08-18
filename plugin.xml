@@ -23,7 +23,12 @@
             <feature name="ActionBar">
                 <param name="android-package" value="com.polychrom.cordova.ActionBarPlugin"/>
             </feature>
+            <preference name="ShowTitle" value="true" />
         </config-file>
+        <edit-config file="AndroidManifest.xml" mode="merge"
+                     target="/manifest/application/activity[@android:label='@string/activity_name']">
+            <activity android:theme="@android:style/Theme.Holo"/>
+        </edit-config>
         <source-file src="src/android/ActionBarPlugin.java" target-dir="src/com/polychrom/cordova"/>
     </platform>
 </plugin>
