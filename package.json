@@ -1,6 +1,6 @@
 {
   "name": "cordova-android-actionbar",
-  "version": "0.1.1",
+  "version": "0.1.0",
   "cordova": {
     "id": "com.polychrom.cordova.ActionBarPlugin",
     "platforms": [
@@ -9,13 +9,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/bushev/cordova-android-actionbar.git"
+    "url": "https://github.com/shokre/cordova-android-actionbar.git"
   },
-  "engines": [
-    {
-      "name": "cordova",
-      "version": ">=3.0.0"
-    }
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android"
   ],
+  "engines": {
+    "cordovaDependencies": {
+      "3.0.0": {
+        "cordova": ">100"
+      }
+    }
+  },
+  "homepage": "https://github.com/shokre/cordova-android-actionbar",
   "license": "MIT"
 }
